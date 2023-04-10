@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const SButton = styled.button`
@@ -19,20 +19,26 @@ const SMenu = styled.div`
     position: absolute;
     width:115px;
     top: -70px;
-    left: -80px;
     border: 1px solid black;
     border-radius: 4px;
+    transition: 0.4s;
 `
 function Menu() {
+    const [isActive, setIsActive] = useState(false)
+
+    const clickButton = () => {
+        setIsActive((prev) => !prev)
+    }
     return (
         <SMenuContainer>
-            <SMenu>
+            {isActive && <SMenu>
                 <div>회원등록</div>
                 <div>출석체크이미지</div>
                 <div>출석체크 개인</div>
                 <div>3주간 미참석 수정</div>
-            </SMenu>
-            <SButton>+</SButton>
+            </SMenu>}
+
+            <SButton onClick={clickButton}>+</SButton>
 
         </SMenuContainer>
     )

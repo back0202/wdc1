@@ -1,15 +1,15 @@
 import React from 'react';
-import { Reset } from 'styled-reset';
 import AllMembers from './pages/AllMembers';
 import NotPresent from './pages/NotPresent';
 import Home from './pages/Home';
+import { Routes, Route } from 'react-router-dom';
 function App() {
   return (
-    <div>
-      <Reset />
-
-      <Home />
-    </div>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/AllMembers' element={<AllMembers />} />
+      <Route path='/NotPresent' element={<NotPresent />} />
+    </Routes>
   );
 }
 
